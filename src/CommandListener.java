@@ -4,7 +4,7 @@ import java.util.logging.Logger;
 
 import com.vexsoftware.votifier.model.Vote;
 import com.vexsoftware.votifier.model.VoteListener;
-import tk.coolv1994.gawdserver.launcher.Launch;
+import tk.coolv1994.gawdapi.Gawd;
 
 /**
  * Created by Vinnie on 12/17/14.
@@ -79,7 +79,7 @@ public class CommandListener implements VoteListener {
                 command = command.replace("{timeStamp}", vote.getTimeStamp());
             }
             // Run command
-            Launch.sendCommand(command);
+            Gawd.sendCommand(command);
         }
     }
 }
