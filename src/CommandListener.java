@@ -4,7 +4,8 @@ import java.util.logging.Logger;
 
 import com.vexsoftware.votifier.model.Vote;
 import com.vexsoftware.votifier.model.VoteListener;
-import tk.coolv1994.gawdapi.Gawd;
+import io.github.gawdserver.api.Server;
+import io.github.gawdserver.api.plugin.PluginDir;
 
 /**
  * Created by Vinnie on 12/17/14.
@@ -14,7 +15,7 @@ public class CommandListener implements VoteListener {
     private ArrayList<String> commands = new ArrayList<String>();
 
     public CommandListener() {
-        File configFile = new File("./plugins/Votifier/CommandListener.txt");
+        File configFile = new File(PluginDir.getPluginDir(), "Votifier/CommandListener.txt");
         if (!configFile.exists())
         {
             String defaultCommand = "say Thanks {username} for voting on {serviceName}!";
@@ -79,7 +80,7 @@ public class CommandListener implements VoteListener {
                 command = command.replace("{timeStamp}", vote.getTimeStamp());
             }
             // Run command
-            Gawd.sendCommand(command);
+            Server.sendCommand(command);
         }
     }
 }
